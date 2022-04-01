@@ -1,0 +1,16 @@
+const data = {
+  projectName: 'Ankit kumar',
+  client: 'Rupali',
+  startFrom: '2022-04-01',
+  endTo: '2022-04-09',
+  note: 'hi rupali',
+  projectType: 'Time & Materials',
+  projectRateSelected: 'Project Rate option 1',
+  projectRateAmount: '120000',
+  budget: 'Budget option 1',
+  budgetReset: true,
+  sendEmail: false,
+  emailBudgetLimit: '',
+  selectedView: 'List',
+  projectManager: 'Only to Specific people',
+};
