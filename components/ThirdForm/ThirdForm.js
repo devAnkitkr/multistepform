@@ -41,7 +41,7 @@ export default function ThirdForm({ formData, setFormData, page, setPage }) {
                   selectedView == 'List' ? 'border-gray-500' : 'border-gray-300'
                 }`}
               >
-                {/* ========================List item ONE======================================= */}
+                {/* ========================List item ONE======================== */}
                 <div className="flex justify-between items-center w-[80%] h-[20px] mb-2">
                   <div
                     className={`w-[50%] h-5  border-2 border-gray-400 rounded group-hover:border-gray-500  ${
@@ -63,7 +63,7 @@ export default function ThirdForm({ formData, setFormData, page, setPage }) {
                     ></div>
                   </div>
                 </div>
-                {/* ===================================List item TWO==================================== */}
+                {/* ===================================List item TWO=================== */}
                 <div className="flex justify-between items-center w-[80%] h-[20px] ">
                   <div
                     className={`w-[50%] h-5 border-2 border-gray-400 rounded group-hover:border-gray-500  ${
@@ -170,6 +170,8 @@ export default function ThirdForm({ formData, setFormData, page, setPage }) {
           </div>
         </div>
       </div>
+
+      {/* =================================BACK AND NEXT BUTTON========================================== */}
       <div className="w-full flex justify-center mt-10 mb-0 items-center relative">
         <button
           onClick={(e) => {

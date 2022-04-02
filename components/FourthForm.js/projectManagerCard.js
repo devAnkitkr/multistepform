@@ -15,7 +15,7 @@ export default function ProjectManagerCard({
       }
     >
       <div
-        className={`w-full min-h-[9=0px] flex justify-between items-center p-3 rounded-lg border group-hover:border-blue-500 ${
+        className={`w-full min-h-[100px] flex justify-between items-center p-3 rounded-lg border group-hover:border-blue-500 ${
           formData.projectManager == heading
             ? 'border-blue-500'
             : 'border-gray-300'

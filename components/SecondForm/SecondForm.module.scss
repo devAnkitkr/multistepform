@@ -1,13 +1,16 @@
 .customSelect {
-  width: 50%;
+  width: 100%;
   position: relative;
+  margin-right: 0.5rem;
 }
 .customSelect select {
   width: 100%;
-  border: 1px solid #e5e7eb;
+  border: 1px solid #d1d5db;
   border-radius: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: #4b5563;
-  // line-height: 1;
   padding: 0.5rem;
   margin: 0.5rem 0;
   outline: none;
@@ -27,7 +30,7 @@
   width: 100%;
   margin: 0.5rem 0;
   padding: 0.5rem;
-  border: 1px solid #e5e7eb;
+  border: 1px solid #d1d5db;
   border-radius: 0.5rem;
   outline: none;
   color: #4b5563;
@@ -38,4 +41,23 @@
     border: 1px solid dodgerblue;
   }
 }
-// customdate: 'my-1 p-2   border-[1px] border-gray-200 outline-none hover:outline-none rounded-lg focus:border-blue-300';
+
+.customInput {
+  width: 100%;
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  padding-left: 1rem;
+  position: relative;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+  &:focus {
+    border: 1px solid dodgerblue !important;
+  }
+  &:active {
+    border: 1px solid dodgerblue !important;
+  }
+}

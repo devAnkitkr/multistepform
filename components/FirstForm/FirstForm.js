@@ -43,7 +43,6 @@ export default function FirstForm({
   const handleFirstFormSubmit = (e) => {
     e.preventDefault();
     const { startFrom, endTo } = formData;
-    console.log(startFrom < endTo);
     if (endTo < startFrom == true) {
       return setErrorMsg('Ending date must come after starting date');
     }
@@ -55,6 +54,7 @@ export default function FirstForm({
       className="w-full min-h-[500px] p-2 pt-2 sm:p-4 sm:pt-2 md:p-8 md:pt-2"
       onSubmit={handleFirstFormSubmit}
     >
+      {/* ==================================Project Name=============================== */}
       <div className={tailwindStyle.inputBox}>
         <label className={tailwindStyle.customLabel}>Project name</label>
         <input
@@ -69,6 +69,8 @@ export default function FirstForm({
           required
         />
       </div>
+
+      {/* ==========================================Client======================================= */}
       <div className={tailwindStyle.inputBox}>
         <label className={tailwindStyle.customLabel}>Client </label>
         <div className="flex justify-between items-center">
@@ -97,7 +99,7 @@ export default function FirstForm({
             or
           </span>
           <button
-            className={`w-[30%] ${tailwindStyle.customBtn}`}
+            className={`w-[50%] md:w-[30%] ${tailwindStyle.customBtn}`}
             onClick={(e) => handleNewClientRequest(e)}
           >
             <span className="text-xl font-semibold px-1">+</span> New Client
@@ -105,7 +107,7 @@ export default function FirstForm({
         </div>
       </div>
 
-      {/* ========================================================Request for New client and addition of new client=================================== */}
+      {/*======================Request for New client and addition of new client========================= */}
       {isNewClientRequested == true && (
         <AddMoreClients
           setClientList={setClientList}
@@ -114,11 +116,12 @@ export default function FirstForm({
         />
       )}
 
+      {/* =========================================Dates============================================= */}
       <div className={tailwindStyle.inputBox}>
         <label className={tailwindStyle.customLabel}>Dates</label>
         <div className="flex justify-between items-center">
-          <div className="relative w-full">
-            <span className="absolute z-0 fill-gray-400 top-4 right-2">
+          <div className="relative w-full flex justify-center items-center">
+            <span className="absolute z-0 fill-gray-400  right-2">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
                 <path d="M19 4h-3V2h-2v2h-4V2H8v2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2zM5 20V7h14V6l.002 14H5z"></path>
                 <path d="m15.628 12.183-1.8-1.799 1.37-1.371 1.8 1.799zm-7.623 4.018V18h1.799l4.976-4.97-1.799-1.799z"></path>
@@ -127,6 +130,7 @@ export default function FirstForm({
             <input
               type="date"
               name="startFrom"
+              placeholder="DD-MM-YY"
               className={classes.customDate}
               value={formData.startFrom}
               onChange={handleOnChange}
@@ -134,8 +138,8 @@ export default function FirstForm({
             />
           </div>
           <span className="m-2 w-3 h-[2px] bg-gray-300"></span>
-          <div className="relative w-full">
-            <span className="absolute z-0 fill-gray-400 top-4 right-2">
+          <div className="relative w-full flex justify-center items-center">
+            <span className="absolute z-0 fill-gray-400 right-2">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
                 <path d="M19 4h-3V2h-2v2h-4V2H8v2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2zM5 20V7h14V6l.002 14H5z"></path>
                 <path d="m15.628 12.183-1.8-1.799 1.37-1.371 1.8 1.799zm-7.623 4.018V18h1.799l4.976-4.97-1.799-1.799z"></path>
@@ -153,6 +157,7 @@ export default function FirstForm({
         </div>
       </div>
 
+      {/* ================================Note====================================== */}
       <div className={tailwindStyle.inputBox}>
         <label className={tailwindStyle.customLabel}>Note</label>
         <textarea

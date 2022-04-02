@@ -33,7 +33,7 @@ export default function FourthForm({
       onSubmit={handleFourthFormSubmit}
     >
       <div className="flex flex-col justify-start items-center min-h-[400px]">
-        <span className="text-sm text-gray-400 mb-8">
+        <span className="text-sm text-center text-gray-400 mb-8">
           Don't panic - You can also customize this permissions in settings
         </span>
 

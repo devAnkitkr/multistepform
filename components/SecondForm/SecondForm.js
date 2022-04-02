@@ -32,7 +32,7 @@ export default function SecondForm({ formData, setFormData, page, setPage }) {
     }
     // for PROJECT RATE AMOUNT
     else if (e.target.name == 'projectRateAmount') {
-      const re = /^[0-9,\b]+$/; //checking whether the entered value is proper number or not by using REGEX.
+      const re = /^[0-9,.\b]+$/; //checking whether the entered value is proper number or not by using REGEX.
       if (e.target.value === '' || re.test(e.target.value)) {
         // const formatedNumber = parseInt(e.target.value).toLocaleString();
         return setFormData((prev) => ({
@@ -44,7 +44,7 @@ export default function SecondForm({ formData, setFormData, page, setPage }) {
     }
     // for EMAIL BUDGET EXCEED
     else if (e.target.name == 'emailBudgetLimit') {
-      const re = /^[0-9]{0,2}$/;
+      const re = /^[0-9]{0,2}.[0-9]{0,2}$/;
       if (e.target.value == '' || re1.test(e.target.value)) {
         return setFormData((prev) => ({
           ...prev,
@@ -76,23 +76,29 @@ export default function SecondForm({ formData, setFormData, page, setPage }) {
       <span className="w-full text-center text-sm text-gray-400 mb-2">
         Don't panic - You can also customize this type in setttings
       </span>
-      <div className="flex justify-between border rounded-lg text-gray-500 cursor-pointer mt-6 overflow-hidden">
+
+      {/* ================================================== Project Type======================================= */}
+      <div className="flex justify-between border border-gray-300 rounded-lg text-gray-500 cursor-pointer mt-6 overflow-hidden">
         <ProjectTypeBtn
           handleOnChange={handleOnChange}
           title="Time & Materials"
           isSelected={formData.projectType == 'Time & Materials'}
         />
-        <ProjectTypeBtn
-          handleOnChange={handleOnChange}
-          title="Fixed Fee"
-          isSelected={formData.projectType == 'Fixed Fee'}
-        />
+        <div className="w-full flex justify-center border-l border-r">
+          <ProjectTypeBtn
+            handleOnChange={handleOnChange}
+            title="Fixed Fee"
+            isSelected={formData.projectType == 'Fixed Fee'}
+          />
+        </div>
         <ProjectTypeBtn
           handleOnChange={handleOnChange}
           title="Non-Billable"
           isSelected={formData.projectType == 'Non-Billable'}
         />
       </div>
+
+      {/* =========================================== Hourly======================================================= */}
       <div className={tailwindStyle.inputBox}>
         <label className={tailwindStyle.customLabel}>Hourly </label>
         <span className="text-sm text-gray-400 mb-2">
@@ -100,7 +106,7 @@ export default function SecondForm({ formData, setFormData, page, setPage }) {
         </span>
         <div className="flex justify-between items-center">
           {/* =======Project Hourly rate selected=========== */}
-          <div className={classes.customSelect}>
+          <div className={`w-[50%] ${classes.customSelect}`}>
             <select
               name="projectRateSelected"
               onChange={handleOnChange}
@@ -130,7 +136,7 @@ export default function SecondForm({ formData, setFormData, page, setPage }) {
                 option 2
               </option>
             </select>
-            <span className="absolute z-0 fill-gray-500 top-4 right-2 scale-110">
+            <span className="absolute z-0 fill-gray-500 top-4 right-0 md:right-2 scale-110">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
                 <path d="M16.293 9.293 12 13.586 7.707 9.293l-1.414 1.414L12 16.414l5.707-5.707z"></path>
               </svg>
@@ -138,16 +144,16 @@ export default function SecondForm({ formData, setFormData, page, setPage }) {
           </div>
 
           {/* =======Project Hourly rate Amount=========== */}
-          <div className="relative">
+          <div className="relative w-[80%] md:w-[70%]">
             <input
               type="text"
               name="projectRateAmount"
               value={formData.projectRateAmount}
-              className={`ml-3 pl-5 ${tailwindStyle.customInput}`}
+              className={classes.customInput}
               onChange={handleOnChange}
               required={formData.projectRateSelected ? true : false}
             />
-            <span className="absolute top-3 left-5">₹</span>
+            <span className="absolute top-4 pt-[1px] left-2">₹</span>
           </div>
         </div>
       </div>
@@ -184,33 +190,34 @@ export default function SecondForm({ formData, setFormData, page, setPage }) {
         </div>
       </div>
 
-      <div className={`text-sm ${tailwindStyle.inputBox}`}>
-        <div className="py-1">
+      {/* ===========================BUDGET RESET====================================== */}
+      <div className="text-sm flex flex-col justify-center items-start">
+        <div className="py-1 flex justify-center items-center">
           <input
             type="checkbox"
             name="budgetReset"
-            className="border border-gray-200 mr-2"
+            className="border border-gray-300 mr-2"
             checked={formData.budgetReset}
             onChange={handleOnChange}
           />
           <span>Budge resets every month</span>
         </div>
-        <div className="flex flex-row py-1">
-          <div className="flex items-center ">
+        <div className="py-1 flex justify-center items-center">
+          <div className="flex items-center">
             <input
               type="checkbox"
-              className="border border-gray-200 mr-2"
+              className="border border-gray-300 mr-2"
               name="sendEmail"
               checked={formData.sendEmail}
               onChange={handleOnChange}
             />
             <span>Send email alerts if project exceeds</span>
           </div>
-          <div className="flex items-center ">
+          <div className="flex justify-center items-center">
             <input
               type="text"
               name="emailBudgetLimit"
-              className="w-[28px] p-1 mx-2 border rounded-lg outline-none focus:border-blue-500"
+              className="w-[55px] p-2 mx-2 border border-gray-300 rounded-lg outline-none focus:border-blue-500"
               onChange={handleOnChange}
               value={formData.emailBudgetLimit}
               required={formData.sendEmail == true ? true : false}
